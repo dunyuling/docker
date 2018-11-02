@@ -1,0 +1,13 @@
+#启动名称为nginx的容器，挂载内容到容器里面的/usr/share/nginx/html目录，容器装载的镜像为nginx
+docker run --name nginx -d -v /usr/share/nginx/html nginx
+#检测容器nginx,找到其挂载具体挂载内容
+docker inspect nginx
+#找到其具体挂在内容如下
+/var/lib/docker/volumes/e0e7cf2b3a7a451333a340ee8b3328999b350bd147daa298385095908ba782ca/_data
+#修改该目录下的文件
+#进入到容器中
+docker -it nginx /bin/bash
+#进入到/usr/share/nginx/html目录
+cd /usr/share/nginx/html
+#可以发现/var/lib/docker/volumes/e0e7cf2b3a7a451333a340ee8b3328999b350bd147daa298385095908ba782ca/_data目录下对某一文件的修改，在该目录下表现了出来
+

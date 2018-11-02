@@ -1,0 +1,11 @@
+#创建只有数据的容器
+docker create -v $PWD/data:/var/mydata --name data_container ubuntu
+#进入容器中,由于ubuntu镜像没有服务，所以通过交互方式进入
+docker run -it --volumes-from data_container ubuntu /bin/bash
+#修改相应容器中的内容
+#发现宿主机中相应内容也做了修改
+
+#该容器可以被多个容器挂载，从而实现了数据的共享
+
+
+

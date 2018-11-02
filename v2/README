@@ -1,0 +1,9 @@
+#启动名称为nginx的容器，挂载当前目录下的html目录到容器里面的/usr/share/nginx/html目录，容器装载的镜像为nginx
+docker run --name nginx -d -v $PWD/html:/usr/share/nginx/html nginx
+#修改html目录下的文件
+#进入到容器中
+docker -it nginx /bin/bash
+#进入到/usr/share/nginx/html目录
+cd /usr/share/nginx/html
+#可以发现该目录下的文件也做了相应修改
+
